@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeCare - Seu App de Autocuidado</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007AFF">
+</head>
+<body>
+    <div class="container">
+        <!-- Página Inicial -->
+        <div id="home-page" class="page active">
+            <div class="hero">
+                <div class="logo">
+                    <div class="logo-icon">💙</div>
+                    <h1>LifeCare</h1>
+                </div>
+                <p class="tagline">Organize sua vida com simplicidade e estilo</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">📅</span>
+                        <h3>Agenda Inteligente</h3>
+                        <p>Gerencie compromissos e consultas</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔔</span>
+                        <h3>Notificações</h3>
+                        <p>Nunca perca um compromisso importante</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📝</span>
+                        <h3>Notas & Tarefas</h3>
+                        <p>Organize seus pensamentos e objetivos</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">💊</span>
+                        <h3>Saúde & Bem-estar</h3>
+                        <p>Monitore sua saúde e medicamentos</p>
+                    </div>
+                </div>
+
+                <div class="auth-buttons">
+                    <button class="btn-primary" onclick="showLogin()">Entrar</button>
+                    <button class="btn-secondary" onclick="showRegister()">Criar Conta</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Login -->
+        <div id="login-page" class="page">
+            <div class="auth-container">
+                <button class="back-btn" onclick="showHome()">← Voltar</button>
+                <h2>Entrar</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="login-password" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Página de Registro -->
+        <div id="register-page" class="page">
+            <div class="auth-container">
+                <button class="back-btn" onclick="showHome()">← Voltar</button>
+                <h2>Criar Conta</h2>
+                <form id="register-form">
+                    <div class="input-group">
+                        <input type="text" id="register-name" placeholder="Nome completo" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="register-email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="register-password" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Criar Conta</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Principal -->
+        <div id="dashboard-page" class="page">
+            <div class="dashboard">
+                <header class="dashboard-header">
+                    <div class="user-info">
+                        <span id="user-name">Olá, Usuário!</span>
+                        <button class="logout-btn" onclick="logout()">Sair</button>
+                    </div>
+                </header>
+
+                <div class="dashboard-content">
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <span class="stat-icon">📅</span>
+                            <div>
+                                <h3 id="today-events">0</h3>
+                                <p>Eventos Hoje</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">✅</span>
+                            <div>
+                                <h3 id="pending-tasks">0</h3>
+                                <p>Tarefas Pendentes</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-icon">💊</span>
+                            <div>
+                                <h3 id="medications-today">0</h3>
+                                <p>Medicamentos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card" onclick="showCalendar()">
+                            <span class="card-icon">📅</span>
+                            <h3>Calendário</h3>
+                            <p>Gerencie seus compromissos</p>
+                        </div>
+                        <div class="dashboard-card" onclick="showTasks()">
+                            <span class="card-icon">✅</span>
+                            <h3>Tarefas</h3>
+                            <p>Organize suas atividades</p>
+                        </div>
+                        <div class="dashboard-card" onclick="showHealth()">
+                            <span class="card-icon">💊</span>
+                            <h3>Saúde</h3>
+                            <p>Monitore sua saúde</p>
+                        </div>
+                        <div class="dashboard-card" onclick="showNotes()">
+                            <span class="card-icon">📝</span>
+                            <h3>Notas</h3>
+                            <p>Suas anotações pessoais</p>
+                        </div>
+                        <div class="dashboard-card" onclick="showHabits()">
+                            <span class="card-icon">🎯</span>
+                            <h3>Hábitos</h3>
+                            <p>Construa rotinas saudáveis</p>
+                        </div>
+                        <div class="dashboard-card" onclick="showProfile()">
+                            <span class="card-icon">👤</span>
+                            <h3>Perfil</h3>
+                            <p>Configurações da conta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página do Calendário -->
+        <div id="calendar-page" class="page">
+            <div class="page-container">
+                <header class="page-header">
+                    <button class="back-btn" onclick="showDashboard()">← Voltar</button>
+                    <h2>Calendário</h2>
+                    <button class="add-btn" onclick="showAddEvent()">+</button>
+                </header>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button onclick="previousMonth()">‹</button>
+                        <h3 id="current-month"></h3>
+                        <button onclick="nextMonth()">›</button>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid"></div>
+                    <div class="events-list" id="events-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Tarefas -->
+        <div id="tasks-page" class="page">
+            <div class="page-container">
+                <header class="page-header">
+                    <button class="back-btn" onclick="showDashboard()">← Voltar</button>
+                    <h2>Tarefas</h2>
+                    <button class="add-btn" onclick="showAddTask()">+</button>
+                </header>
+                <div class="tasks-container">
+                    <div class="task-filters">
+                        <button class="filter-btn active" onclick="filterTasks('all')">Todas</button>
+                        <button class="filter-btn" onclick="filterTasks('pending')">Pendentes</button>
+                        <button class="filter-btn" onclick="filterTasks('completed')">Concluídas</button>
+                    </div>
+                    <div class="tasks-list" id="tasks-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Saúde -->
+        <div id="health-page" class="page">
+            <div class="page-container">
+                <header class="page-header">
+                    <button class="back-btn" onclick="showDashboard()">← Voltar</button>
+                    <h2>Saúde</h2>
+                    <button class="add-btn" onclick="showAddMedication()">+</button>
+                </header>
+                <div class="health-container">
+                    <div class="health-tabs">
+                        <button class="tab-btn active" onclick="showHealthTab('medications')">Medicamentos</button>
+                        <button class="tab-btn" onclick="showHealthTab('appointments')">Consultas</button>
+                        <button class="tab-btn" onclick="showHealthTab('vitals')">Sinais Vitais</button>
+                    </div>
+                    <div class="health-content">
+                        <div id="medications-tab" class="tab-content active">
+                            <div id="medications-list"></div>
+                        </div>
+                        <div id="appointments-tab" class="tab-content">
+                            <div id="appointments-list"></div>
+                        </div>
+                        <div id="vitals-tab" class="tab-content">
+                            <div id="vitals-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Notas -->
+        <div id="notes-page" class="page">
+            <div class="page-container">
+                <header class="page-header">
+                    <button class="back-btn" onclick="showDashboard()">← Voltar</button>
+                    <h2>Notas</h2>
+                    <button class="add-btn" onclick="showAddNote()">+</button>
+                </header>
+                <div class="notes-container">
+                    <div class="notes-grid" id="notes-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página de Hábitos -->
+        <div id="habits-page" class="page">
+            <div class="page-container">
+                <header class="page-header">
+                    <button class="back-btn" onclick="showDashboard()">← Voltar</button>
+                    <h2>Hábitos</h2>
+                    <button class="add-btn" onclick="showAddHabit()">+</button>
+                </header>
+                <div class="habits-container">
+                    <div id="habits-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modais -->
+        <div id="modal-overlay" class="modal-overlay">
+            <div class="modal" id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "LifeCare - Autocuidado e Gerenciamento",
+  "short_name": "LifeCare",
+  "description": "Seu app completo de autocuidado e gerenciamento pessoal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#007AFF",
+  "theme_color": "#007AFF",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["health", "productivity", "lifestyle"],
+  "lang": "pt-BR"
+}

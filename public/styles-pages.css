@@ -1,0 +1,229 @@
+/* Estilos adicionais para páginas internas */
+
+/* Container principal das páginas */
+.tasks-container,
+.health-container,
+.notes-container,
+.habits-container,
+.calendar-container {
+    padding: 2rem;
+    flex: 1;
+}
+
+/* Lista de tarefas */
+.tasks-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Lista de eventos */
+.events-list {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+}
+
+.events-list h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 1rem;
+}
+
+/* Listas de saúde */
+#medications-list,
+#appointments-list,
+#vitals-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Lista de hábitos */
+#habits-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Melhorias para mobile */
+@media (max-width: 768px) {
+    .tasks-container,
+    .health-container,
+    .notes-container,
+    .habits-container,
+    .calendar-container {
+        padding: 1rem;
+    }
+    
+    .empty-state {
+        padding: 2rem 1rem;
+        margin: 1rem;
+    }
+    
+    .empty-state svg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .calendar-header {
+        padding: 0.75rem;
+    }
+    
+    .calendar-header h3 {
+        font-size: 1.125rem;
+    }
+    
+    .task-filters,
+    .health-tabs {
+        gap: 0.25rem;
+    }
+    
+    .filter-btn,
+    .tab-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .habit-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .progress-day {
+        width: 28px;
+        height: 28px;
+        font-size: 0.625rem;
+    }
+}
+
+/* Estados de loading */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    color: var(--gray-500);
+}
+
+.loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gray-300);
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estados vazios */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--gray-500);
+    grid-column: 1 / -1;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    border: 2px dashed var(--gray-200);
+    margin: 2rem;
+}
+
+.empty-state svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    opacity: 0.4;
+    color: var(--gray-400);
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Highlight de busca */
+mark {
+    background: linear-gradient(135deg, #fef3c7, #fbbf24);
+    color: var(--gray-900);
+    padding: 0.125rem 0.25rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+/* Animações de entrada */
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Melhorias de acessibilidade */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus states melhorados */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Melhorias para impressão */
+@media print {
+    .sidebar,
+    .page-header .add-btn,
+    .modal-overlay {
+        display: none !important;
+    }
+    
+    .page-container {
+        display: block !important;
+    }
+    
+    .main-content {
+        margin: 0 !important;
+    }
+}
