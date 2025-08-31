@@ -108,6 +108,9 @@ function setupEventListeners() {
     // Event delegation principal
     document.addEventListener('click', handleGlobalClick);
     document.addEventListener('submit', handleFormSubmit);
+    
+    // Setup mobile navigation
+    setupMobileNavigation();
 }
 
 function handleGlobalClick(e) {
@@ -197,15 +200,21 @@ function handleGlobalClick(e) {
     }
     
     // Download buttons
-    else if (target.id === 'ios-download' || closest('#ios-download')) {
+    else if (target.id === 'ios-download' || closest('#ios-download') || target.id === 'ios-download-bottom' || closest('#ios-download-bottom')) {
         e.preventDefault();
         handleIOSDownload();
-    } else if (target.id === 'android-download' || closest('#android-download')) {
+    } else if (target.id === 'android-download' || closest('#android-download') || target.id === 'android-download-bottom' || closest('#android-download-bottom')) {
         e.preventDefault();
         handleAndroidDownload();
-    } else if (target.id === 'windows-download' || closest('#windows-download')) {
+    } else if (target.id === 'windows-download' || closest('#windows-download') || target.id === 'windows-download-bottom' || closest('#windows-download-bottom')) {
         e.preventDefault();
         handleWindowsDownload();
+    }
+    
+    // Mobile download scroll link
+    else if (target.id === 'mobile-download-scroll' || closest('#mobile-download-scroll')) {
+        e.preventDefault();
+        scrollToDownloadSection();
     }
 }
 
@@ -3150,6 +3159,36 @@ window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     window.deferredPrompt = e;
 });
+
+// Função para scroll suave até a seção de download
+function scrollToDownloadSection() {
+    const downloadSection = document.getElementById('download-section');
+    if (downloadSection) {
+        // Vibração no dispositivo se suportado
+        if ('vibrate' in navigator) {
+            navigator.vibrate([50, 100, 50]);
+        }
+        
+        // Scroll suave
+        downloadSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center'
+        });
+        
+        // Efeito de destaque na seção
+        setTimeout(() => {
+            downloadSection.style.transform = 'scale(1.02)';
+            downloadSection.style.transition = 'transform 0.3s ease';
+            
+            setTimeout(() => {
+                downloadSection.style.transform = 'scale(1)';
+            }, 300);
+        }, 500);
+        
+        // Notificação visual
+        showBeautifulNotification('📱 Escolha sua plataforma para download!', 'info', 'general');
+    }
+}
 function handleWindowsDownload() {
     const btn = document.getElementById('windows-download');
     
@@ -3265,4 +3304,228 @@ function showAndroidInstallInstructions(btn) {
             </div>
         `);
     }, 1500);
+}
+
+// Navegação Mobile
+function setupMobileNavigation() {
+    // Setup mobile menu toggles
+    document.addEventListener('click', (e) => {
+        if (e.target.id === 'mobile-menu-toggle' || e.target.closest('#mobile-menu-toggle')) {
+            e.preventDefault();
+            toggleMobileSidebar();
+        }
+        
+        if (e.target.id === 'mobile-sidebar-overlay' || e.target.closest('#mobile-sidebar-overlay')) {
+            e.preventDefault();
+            closeMobileSidebar();
+        }
+    });
+    
+    // Setup mobile bottom navigation
+    document.querySelectorAll('.mobile-nav-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const nav = item.dataset.nav;
+            if (nav) {
+                updateMobileNavigation(nav);
+                handleNavigation(nav);
+            }
+        });
+    });
+    
+    // Setup mobile sidebar navigation
+    document.querySelectorAll('.mobile-sidebar-nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const nav = link.dataset.nav;
+            if (nav) {
+                closeMobileSidebar();
+                updateMobileNavigation(nav);
+                handleNavigation(nav);
+            }
+        });
+    });
+    
+    // Setup mobile search inputs
+    const mobileTasksSearch = document.getElementById('mobile-tasks-search');
+    if (mobileTasksSearch) {
+        mobileTasksSearch.addEventListener('input', (e) => {
+            const desktopSearch = document.getElementById('tasks-search');
+            if (desktopSearch) {
+                desktopSearch.value = e.target.value;
+                desktopSearch.dispatchEvent(new Event('input'));
+            }
+        });
+    }
+    
+    const mobileNotesSearch = document.getElementById('mobile-notes-search');
+    if (mobileNotesSearch) {
+        mobileNotesSearch.addEventListener('input', (e) => {
+            const desktopSearch = document.getElementById('notes-search');
+            if (desktopSearch) {
+                desktopSearch.value = e.target.value;
+                desktopSearch.dispatchEvent(new Event('input'));
+            }
+        });
+    }
+}
+
+function toggleMobileSidebar() {
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('mobile-sidebar-overlay');
+    
+    if (sidebar && overlay) {
+        const isOpen = sidebar.classList.contains('active');
+        
+        if (isOpen) {
+            closeMobileSidebar();
+        } else {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.classList.add('mobile-menu-active');
+        }
+    }
+}
+
+function closeMobileSidebar() {
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('mobile-sidebar-overlay');
+    
+    if (sidebar) sidebar.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.classList.remove('mobile-menu-active');
+}
+
+function updateMobileNavigation(activeNav) {
+    // Update bottom navigation
+    document.querySelectorAll('.mobile-nav-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.nav === activeNav) {
+            item.classList.add('active');
+        }
+    });
+    
+    // Update sidebar navigation
+    document.querySelectorAll('.mobile-sidebar-nav a').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.nav === activeNav) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Update mobile header title
+    const headerTitle = document.querySelector('.mobile-header-title');
+    if (headerTitle) {
+        const titles = {
+            dashboard: 'Dashboard',
+            calendar: 'Calendário',
+            tasks: 'Tarefas',
+            health: 'Saúde',
+            notes: 'Notas',
+            habits: 'Hábitos'
+        };
+        headerTitle.textContent = titles[activeNav] || 'Organiza+';
+    }
+}
+
+// Atualizar dados mobile
+function updateMobileStats() {
+    // Sincronizar stats mobile com desktop
+    const todayEvents = document.getElementById('today-events')?.textContent || '0';
+    const pendingTasks = document.getElementById('pending-tasks')?.textContent || '0';
+    const medicationsToday = document.getElementById('medications-today')?.textContent || '0';
+    
+    const todayEventsMobile = document.getElementById('today-events-mobile');
+    const pendingTasksMobile = document.getElementById('pending-tasks-mobile');
+    const medicationsTodayMobile = document.getElementById('medications-today-mobile');
+    const habitsStreakMobile = document.getElementById('habits-streak-mobile');
+    
+    if (todayEventsMobile) todayEventsMobile.textContent = todayEvents;
+    if (pendingTasksMobile) pendingTasksMobile.textContent = pendingTasks;
+    if (medicationsTodayMobile) medicationsTodayMobile.textContent = medicationsToday;
+    if (habitsStreakMobile) habitsStreakMobile.textContent = '7'; // Placeholder
+}
+
+// Override da função loadDashboardData para incluir mobile
+async function loadDashboardData() {
+    if (!currentUser) return;
+    
+    try {
+        console.log('📊 Carregando dados do dashboard...');
+        
+        // Mostrar loading
+        const statsElements = ['today-events', 'pending-tasks', 'medications-today'];
+        const mobileStatsElements = ['today-events-mobile', 'pending-tasks-mobile', 'medications-today-mobile'];
+        
+        [...statsElements, ...mobileStatsElements].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = '<div class="loading-spinner"></div>';
+        });
+        
+        // Carregar dados em paralelo
+        const today = new Date().toISOString().split('T')[0];
+        const tomorrow = new Date(Date.now() + 24*60*60*1000).toISOString().split('T')[0];
+        
+        const [eventsResult, tasksResult, medicationsResult] = await Promise.allSettled([
+            supabase.from('events').select('*').eq('user_id', currentUser.id).gte('date', today).lt('date', tomorrow),
+            supabase.from('tasks').select('*').eq('user_id', currentUser.id).eq('completed', false),
+            supabase.from('medications').select('*').eq('user_id', currentUser.id)
+        ]);
+        
+        // Atualizar contadores desktop
+        const todayEventsEl = document.getElementById('today-events');
+        if (todayEventsEl) {
+            const count = eventsResult.status === 'fulfilled' ? (eventsResult.value.data?.length || 0) : 0;
+            todayEventsEl.textContent = count;
+            animateCounter(todayEventsEl, count);
+        }
+        
+        const pendingTasksEl = document.getElementById('pending-tasks');
+        if (pendingTasksEl) {
+            const count = tasksResult.status === 'fulfilled' ? (tasksResult.value.data?.length || 0) : 0;
+            pendingTasksEl.textContent = count;
+            animateCounter(pendingTasksEl, count);
+        }
+        
+        const medicationsTodayEl = document.getElementById('medications-today');
+        if (medicationsTodayEl) {
+            const count = medicationsResult.status === 'fulfilled' ? (medicationsResult.value.data?.length || 0) : 0;
+            medicationsTodayEl.textContent = count;
+            animateCounter(medicationsTodayEl, count);
+        }
+        
+        // Atualizar contadores mobile
+        const todayEventsMobile = document.getElementById('today-events-mobile');
+        if (todayEventsMobile) {
+            const count = eventsResult.status === 'fulfilled' ? (eventsResult.value.data?.length || 0) : 0;
+            todayEventsMobile.textContent = count;
+            animateCounter(todayEventsMobile, count);
+        }
+        
+        const pendingTasksMobile = document.getElementById('pending-tasks-mobile');
+        if (pendingTasksMobile) {
+            const count = tasksResult.status === 'fulfilled' ? (tasksResult.value.data?.length || 0) : 0;
+            pendingTasksMobile.textContent = count;
+            animateCounter(pendingTasksMobile, count);
+        }
+        
+        const medicationsTodayMobile = document.getElementById('medications-today-mobile');
+        if (medicationsTodayMobile) {
+            const count = medicationsResult.status === 'fulfilled' ? (medicationsResult.value.data?.length || 0) : 0;
+            medicationsTodayMobile.textContent = count;
+            animateCounter(medicationsTodayMobile, count);
+        }
+        
+        const habitsStreakMobile = document.getElementById('habits-streak-mobile');
+        if (habitsStreakMobile) {
+            habitsStreakMobile.textContent = '7'; // Placeholder - implementar lógica real
+            animateCounter(habitsStreakMobile, 7);
+        }
+        
+        console.log('✅ Dados do dashboard carregados');
+        
+    } catch (error) {
+        console.error('❌ Erro ao carregar dados do dashboard:', error);
+        showNotification('Erro ao carregar dados do dashboard', 'error');
+    }
 }

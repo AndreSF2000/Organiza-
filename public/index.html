@@ -52,8 +52,25 @@
                             </button>
                         </div>
                         
+                        <!-- Mobile Download Link -->
+                        <a href="#download-section" class="mobile-download-link" id="mobile-download-scroll">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Baixe o app gratuito
+                        </a>
+                        
                         <div class="download-section">
-                            <p class="download-text">📱 Baixe o app gratuito</p>
+                            <p class="download-text">
+                                <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Baixe o app gratuito
+                            </p>
                             <div class="download-buttons">
                                 <button id="ios-download" class="download-btn ios-btn">
                                     <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -130,6 +147,47 @@
                             <p>Controle completo de medicamentos, consultas e indicadores de bem-estar</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Download Section Bottom (Mobile) -->
+            <div class="download-section-bottom" id="download-section">
+                <div class="download-text">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7,10 12,15 17,10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Baixe o app gratuito
+                </div>
+                <div class="download-buttons">
+                    <button id="ios-download-bottom" class="download-btn ios-btn">
+                        <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <div class="download-info">
+                            <span class="download-label">Baixar para</span>
+                            <span class="download-store">iOS / iPhone</span>
+                        </div>
+                    </button>
+                    <button id="android-download-bottom" class="download-btn android-btn">
+                        <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/>
+                        </svg>
+                        <div class="download-info">
+                            <span class="download-label">Baixar para</span>
+                            <span class="download-store">Android</span>
+                        </div>
+                    </button>
+                    <button id="windows-download-bottom" class="download-btn windows-btn">
+                        <svg class="download-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.851"/>
+                        </svg>
+                        <div class="download-info">
+                            <span class="download-label">Baixar para</span>
+                            <span class="download-store">Windows</span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -230,6 +288,19 @@
 
         <!-- Dashboard Principal -->
         <div id="dashboard-page" class="page">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <h1 class="mobile-header-title">Dashboard</h1>
+                <div style="width: 40px;"></div>
+            </header>
+            
             <div class="dashboard">
                 <header class="dashboard-header">
                     <div class="user-info">
@@ -246,6 +317,27 @@
                 </header>
 
                 <div class="dashboard-content">
+                    <!-- Mobile Stats -->
+                    <div class="mobile-stats-grid">
+                        <div class="mobile-stat-card">
+                            <div class="mobile-stat-number" id="today-events-mobile">0</div>
+                            <div class="mobile-stat-label">Eventos Hoje</div>
+                        </div>
+                        <div class="mobile-stat-card">
+                            <div class="mobile-stat-number" id="pending-tasks-mobile">0</div>
+                            <div class="mobile-stat-label">Tarefas</div>
+                        </div>
+                        <div class="mobile-stat-card">
+                            <div class="mobile-stat-number" id="medications-today-mobile">0</div>
+                            <div class="mobile-stat-label">Medicamentos</div>
+                        </div>
+                        <div class="mobile-stat-card">
+                            <div class="mobile-stat-number" id="habits-streak-mobile">0</div>
+                            <div class="mobile-stat-label">Sequência</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Stats -->
                     <div class="quick-stats">
                         <div class="stat-card">
                             <div class="stat-icon">
@@ -286,6 +378,74 @@
                         </div>
                     </div>
 
+                    <!-- Mobile Dashboard Grid -->
+                    <div class="mobile-dashboard-grid">
+                        <div class="mobile-dashboard-card" id="calendar-card">
+                            <div class="mobile-card-icon">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </div>
+                            <div class="mobile-card-info">
+                                <h3>Calendário</h3>
+                                <p>Compromissos e eventos</p>
+                            </div>
+                        </div>
+                        <div class="mobile-dashboard-card" id="tasks-card">
+                            <div class="mobile-card-icon">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9,11 12,14 22,4"/>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                </svg>
+                            </div>
+                            <div class="mobile-card-info">
+                                <h3>Tarefas</h3>
+                                <p>Organize suas atividades</p>
+                            </div>
+                        </div>
+                        <div class="mobile-dashboard-card" id="health-card">
+                            <div class="mobile-card-icon">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                            </div>
+                            <div class="mobile-card-info">
+                                <h3>Saúde</h3>
+                                <p>Medicamentos e consultas</p>
+                            </div>
+                        </div>
+                        <div class="mobile-dashboard-card" id="notes-card">
+                            <div class="mobile-card-icon">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                            </div>
+                            <div class="mobile-card-info">
+                                <h3>Notas</h3>
+                                <p>Ideias e anotações</p>
+                            </div>
+                        </div>
+                        <div class="mobile-dashboard-card" id="habits-card">
+                            <div class="mobile-card-icon">
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                                </svg>
+                            </div>
+                            <div class="mobile-card-info">
+                                <h3>Hábitos</h3>
+                                <p>Rotinas saudáveis</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Dashboard Grid -->
                     <div class="dashboard-grid">
                         <div class="dashboard-card" id="calendar-card">
                             <div class="card-icon">
@@ -368,6 +528,27 @@
 
         <!-- Página do Calendário -->
         <div id="calendar-page" class="page">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <h1 class="mobile-header-title">Calendário</h1>
+                <div style="width: 40px;"></div>
+            </header>
+            
+            <!-- Mobile FAB -->
+            <button class="mobile-fab" data-action="add-event">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+            </button>
+            
             <div class="page-container">
                 <div class="sidebar">
                     <ul class="sidebar-nav">
@@ -474,6 +655,38 @@
 
         <!-- Página de Tarefas -->
         <div id="tasks-page" class="page">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <h1 class="mobile-header-title">Tarefas</h1>
+                <div style="width: 40px;"></div>
+            </header>
+            
+            <!-- Mobile Search -->
+            <div class="mobile-search-container">
+                <div style="position: relative;">
+                    <svg class="mobile-search-icon icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="mobile-tasks-search" placeholder="Buscar tarefas..." class="mobile-search-input">
+                </div>
+            </div>
+            
+            <!-- Mobile FAB -->
+            <button class="mobile-fab" data-action="add-task">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+            </button>
+            
             <div class="page-container">
                 <div class="sidebar">
                     <ul class="sidebar-nav">
@@ -578,6 +791,27 @@
 
         <!-- Página de Saúde -->
         <div id="health-page" class="page">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <h1 class="mobile-header-title">Saúde</h1>
+                <div style="width: 40px;"></div>
+            </header>
+            
+            <!-- Mobile FAB -->
+            <button class="mobile-fab" data-action="add-medication">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+            </button>
+            
             <div class="page-container">
                 <div class="sidebar">
                     <ul class="sidebar-nav">
@@ -707,6 +941,38 @@
 
         <!-- Página de Notas -->
         <div id="notes-page" class="page">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <h1 class="mobile-header-title">Notas</h1>
+                <div style="width: 40px;"></div>
+            </header>
+            
+            <!-- Mobile Search -->
+            <div class="mobile-search-container">
+                <div style="position: relative;">
+                    <svg class="mobile-search-icon icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="mobile-notes-search" placeholder="Buscar notas..." class="mobile-search-input">
+                </div>
+            </div>
+            
+            <!-- Mobile FAB -->
+            <button class="mobile-fab" data-action="add-note">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+            </button>
+            
             <div class="page-container">
                 <div class="sidebar">
                     <ul class="sidebar-nav">
@@ -808,6 +1074,27 @@
 
         <!-- Página de Hábitos -->
         <div id="habits-page" class="page">
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <h1 class="mobile-header-title">Hábitos</h1>
+                <div style="width: 40px;"></div>
+            </header>
+            
+            <!-- Mobile FAB -->
+            <button class="mobile-fab" data-action="add-habit">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+            </button>
+            
             <div class="page-container">
                 <div class="sidebar">
                     <ul class="sidebar-nav">
@@ -895,6 +1182,121 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Mobile Bottom Navigation -->
+        <nav class="mobile-bottom-nav">
+            <div class="mobile-nav-items">
+                <a href="#" class="mobile-nav-item active" data-nav="dashboard">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="mobile-nav-item" data-nav="calendar">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <span>Agenda</span>
+                </a>
+                <a href="#" class="mobile-nav-item" data-nav="tasks">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,11 12,14 22,4"/>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </svg>
+                    <span>Tarefas</span>
+                </a>
+                <a href="#" class="mobile-nav-item" data-nav="health">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    <span>Saúde</span>
+                </a>
+                <a href="#" class="mobile-nav-item" data-nav="notes">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                    <span>Notas</span>
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Mobile Sidebar -->
+        <div class="mobile-sidebar-overlay" id="mobile-sidebar-overlay"></div>
+        <aside class="mobile-sidebar" id="mobile-sidebar">
+            <div class="mobile-sidebar-header">
+                <h3>Menu</h3>
+            </div>
+            <nav class="mobile-sidebar-nav">
+                <ul>
+                    <li><a href="#" data-nav="dashboard">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        Dashboard
+                    </a></li>
+                    <li><a href="#" data-nav="calendar">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Calendário
+                    </a></li>
+                    <li><a href="#" data-nav="tasks">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,11 12,14 22,4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+                        Tarefas
+                    </a></li>
+                    <li><a href="#" data-nav="health">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                        Saúde
+                    </a></li>
+                    <li><a href="#" data-nav="notes">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Notas
+                    </a></li>
+                    <li><a href="#" data-nav="habits">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                        Hábitos
+                    </a></li>
+                </ul>
+            </nav>
+            <div class="mobile-sidebar-footer">
+                <button class="mobile-logout-btn" data-action="logout">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16,17 21,12 16,7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Sair
+                </button>
+            </div>
+        </aside>
         
         <!-- Modal -->
         <div id="modal-overlay" class="modal-overlay">
